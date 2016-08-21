@@ -1,14 +1,19 @@
+    
+//заменить parentNode e.target.closest()
+
     var btnCartAll = document.querySelectorAll('.catalog_cart__btn');
     for (var i=0; i<btnCartAll.length; i++){
         btnCartAll[i].addEventListener('click', function(e){
             e.preventDefault();
-            var element = e.target.parentNode.parentNode.parentNode.parentNode;
+            var element = e.target.closest('.catalog_cart');
+                //console.log('catalog cart', e.target.closest('.catalog_cart'));
             var price = Number(element.dataset.price);
-            element = e.target.parentNode.parentNode.previousElementSibling;
+            element = e.target.closest('.catalog_cart__content').querySelector('.catalog_cart__title');
+                //console.log('catalog title', e.target.closest('.catalog_cart__title'));
             var title = element.innerText;
             addToCart(title, price);
-            //console.log(element.parentNode.previousElementSibling);
-            //console.log(element.parentNode.parentNode.parentNode.parentNode);
+                //console.log(element.parentNode.previousElementSibling);
+                //console.log(element.parentNode.parentNode.parentNode.parentNode);
         })
     }
 
