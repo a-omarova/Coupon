@@ -1,16 +1,16 @@
-function addListenersToButtons() {
-    var toCart = document.querySelectorAll('.catalog_cart__btn');
-    for (var i=0; i<toCart.length; i++){
-        toCart[i].addEventListener('click', function(e){
+    var btnCartAll = document.querySelectorAll('.catalog_cart__btn');
+    for (var i=0; i<btnCartAll.length; i++){
+        btnCartAll[i].addEventListener('click', function(e){
             e.preventDefault();
-            var element = e.target.parentNode.parentNode.parentNode;
+            var element = e.target.parentNode.parentNode.parentNode.parentNode;
             var price = Number(element.dataset.price);
-            element = e.target.parentNode.previousElementSibling;
+            element = e.target.parentNode.parentNode.previousElementSibling;
             var title = element.innerText;
             addToCart(title, price);
+            console.log(element.parentNode.previousElementSibling);
+            console.log(element.parentNode.parentNode.parentNode.parentNode);
         })
     }
-}
 
 console.log(document.querySelector('.catalog_cart__btn').parentNode.previousElementSibling);
 console.log(document.querySelector('.catalog_cart__btn').parentNode.parentNode.parentNode);
