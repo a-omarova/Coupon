@@ -7,13 +7,13 @@
             element = e.target.parentNode.parentNode.previousElementSibling;
             var title = element.innerText;
             addToCart(title, price);
-            console.log(element.parentNode.previousElementSibling);
-            console.log(element.parentNode.parentNode.parentNode.parentNode);
+            //console.log(element.parentNode.previousElementSibling);
+            //console.log(element.parentNode.parentNode.parentNode.parentNode);
         })
     }
 
-console.log(document.querySelector('.catalog_cart__btn').parentNode.previousElementSibling);
-console.log(document.querySelector('.catalog_cart__btn').parentNode.parentNode.parentNode);
+//console.log(document.querySelector('.catalog_cart__btn').parentNode.previousElementSibling);
+//console.log(document.querySelector('.catalog_cart__btn').parentNode.parentNode.parentNode);
 
 var svgClose = `<div onclick="removeFromCart(event, this)" class="catalog_basket__close"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 44.238 44.238" style="enable-background:new 0 0 44.238 44.238;" xml:space="preserve">
 <g>
@@ -36,6 +36,13 @@ function addToCart(title, price) {
     "</div><div class='catalog_basket__price price'>" + price +
     "</div>" + svgClose;
     document.querySelector('.catalog_basket__list').appendChild(el);
+}
+
+
+function removeFromCart(e, context) {
+    var parent = context.parentNode;
+    //console.log(parent);
+    parent.remove();
 }
 
 //6.  изменение расположения : слушаем клик, изменяем класс Add Remove. ничего не должно происходить по клику на активную кнопку
